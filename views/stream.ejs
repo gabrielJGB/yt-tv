@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title></title>
+		<title><%=data[channel_id].channel_title%></title>
 		<link rel="stylesheet" href="/style.css">
 
 	</head>
@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="embed">
-			<iframe class="iframe" src="https://www.youtube.com/embed/<%=data[channel_id].video_id%>?autoplay=1&mute=1" allowfullscreen frameborder="0"></iframe>
+			<iframe class="iframe" src="https://www.youtube.com/embed/<%=data[channel_id].video_id%>?autoplay=1" allowfullscreen frameborder="0"></iframe>
 		</div>
 		
 		<div class="video-container-bottom">
@@ -36,6 +36,12 @@
 	<script>
 		const iframe = document.querySelector('.iframe')
 		iframe.width = window.innerWidth-window.innerWidth*0.1
-		iframe.height = 345
+
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			iframe.height = 245
+		}else{
+			iframe.height = 345
+		}
+		
 	</script>
 </html>

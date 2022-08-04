@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<title>Canales disponibles</title>
+</head>
+<body>
+	
+	<div class="header-1">
+		<a href="/">Categorias</a>
+		<div>Canales disponibles</div>
+		<div><a href="/stream/<%=category_id%>/<%=Math.floor(Math.random() * data.length)%>">Al azar</a></div>
+	</div>
+
+
+	<div class="video-container">
+
+		<% data.forEach(item=>{ %>
+		<a href="/stream/<%=category_id%>/<%=item.channel_id%>" class="video">
+			<img src="<%=item.img_medium%>" width="320" height="180" alt="">
+	    	<h4><%=item.title%></h4>
+	    </a>
+	  	<% }); %>
+
+	</div>
+</body>
+</html>

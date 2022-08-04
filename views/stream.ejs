@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="/style.css">
+
+	</head>
+	<body>
+
+
+			
+
+		<div class="header-1">
+			<a href="/<%=category_id%>">Volver</a>
+			<%=data[channel_id].channel_title%>
+			<div><a href="/stream/<%=category_id%>/<%=Math.floor(Math.random() * data.length)%>">Al azar</a></div>
+		</div>
+
+		<div class="embed">
+			<iframe class="iframe" src="https://www.youtube.com/embed/<%=data[channel_id].video_id%>?autoplay=1&mute=1" allowfullscreen frameborder="0"></iframe>
+		</div>
+		
+		<div class="video-container-bottom">
+			<% data.forEach(item=>{ %>
+			<a href="/stream/<%=category_id%>/<%=item.channel_id%>" class="video">
+				<img src="<%=item.img_default%>" width="120" height="90" alt="">
+				<h4><%=item.channel_title%></h4>
+			</a>
+			<% }); %>
+		</div>
+		
+	</body>
+
+	<script>
+		const iframe = document.querySelector('.iframe')
+		iframe.width = window.innerWidth-window.innerWidth*0.1
+		iframe.height = 345
+	</script>
+</html>
